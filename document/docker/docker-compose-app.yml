@@ -4,20 +4,22 @@ services:
     image: mall/mall-admin:1.0-SNAPSHOT
     container_name: mall-admin
     ports:
-      - 8080:8080
+      - 9001:9001
     volumes:
       - /mydata/app/mall-admin/logs:/var/logs
       - /etc/localtime:/etc/localtime
     environment:
       - 'TZ="Asia/Shanghai"'
     external_links:
+      - redis:redis
+      - rabbitmq:rabbit
       - mysql:db #可以用db这个域名访问mysql服务
       - nacos-registry:nacos-registry #可以用nacos-registry这个域名访问nacos服务
   mall-search:
     image: mall/mall-search:1.0-SNAPSHOT
     container_name: mall-search
     ports:
-      - 8081:8081
+      - 9004:9004
     volumes:
       - /mydata/app/mall-search/logs:/var/logs
       - /etc/localtime:/etc/localtime
@@ -31,7 +33,7 @@ services:
     image: mall/mall-portal:1.0-SNAPSHOT
     container_name: mall-portal
     ports:
-      - 8085:8085
+      - 9003:9003
     volumes:
       - /mydata/app/mall-portal/logs:/var/logs
       - /etc/localtime:/etc/localtime
