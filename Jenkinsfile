@@ -14,7 +14,7 @@ node {
         for(int i=0;i<selectedProjects.size();i++){
             def currentProject = selectedProjects[i];
             sh "chmod 777 ./document/sh/${currentProject}.sh/"
-            sh "./document/sh/${currentProject}.sh"
+//             sh "./document/sh/${currentProject}.sh"
         }
     }
 }
