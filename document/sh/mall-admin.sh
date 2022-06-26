@@ -6,7 +6,7 @@ docker rm ${app_name}
 echo '----rm container----'
 docker rmi `docker images | grep none | awk '{print $3}'`
 echo '----rm none images----'
-docker run -p 8080:8080 --name ${app_name} \
+docker run -p 9001:901 --name ${app_name} \
 --link mysql:db \
 --link nacos-registry:nacos-registry \
 -e TZ="Asia/Shanghai" \
