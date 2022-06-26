@@ -10,10 +10,11 @@ node {
 //             def currentProject = selectedProjects[i];
 //             sh "mvn -f ${currentProject} clean package"
 //         }
-        sh "./document/sh/mall-admin.sh"
-//         for(int i=0;i<selectedProjects.size();i++){
-//             def currentProject = selectedProjects[i];
-//             sh "./document/sh/${currentProject}.sh"
-//         }
+//         sh "./document/sh/mall-admin.sh"
+        for(int i=0;i<selectedProjects.size();i++){
+            def currentProject = selectedProjects[i];
+            sh "chmod 777 ./document/sh/${currentProject}.sh/"
+            sh "./document/sh/${currentProject}.sh"
+        }
     }
 }
