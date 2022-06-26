@@ -1,4 +1,5 @@
 node {
+    agent none
     def selectedProjects = "${project_name}".split(',')
     stage('Pull') { // for display purposes
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '34253aae-332d-4bc7-bcba-6bb5b4d56c62', url: 'git@github.com:Ra136F/mall-swarm.git']]])
