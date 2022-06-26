@@ -5,15 +5,17 @@ node {
     }
     stage('Build') {
         sh "mvn -v"
-        sh "mvn clean install -pl mall-common,mall-mbg -am"
-        for(int i=0;i<selectedProjects.size();i++){
-            def currentProject = selectedProjects[i];
-            sh "mvn -f ${currentProject} clean package"
-        }
+//         sh "mvn clean install -pl mall-common,mall-mbg -am"
+//         for(int i=0;i<selectedProjects.size();i++){
+//             def currentProject = selectedProjects[i];
+//             sh "mvn -f ${currentProject} clean package"
+//         }
         sh "echo 'whoami'"
-        for(int i=0;i<selectedProjects.size();i++){
-            def currentProject = selectedProjects[i];
-            sh "./document/sh/${currentProject}.sh"
-        }
+        echo 'whoami'
+        sh "cd ./document/sh"
+//         for(int i=0;i<selectedProjects.size();i++){
+//             def currentProject = selectedProjects[i];
+//             sh "./document/sh/${currentProject}.sh"
+//         }
     }
 }
