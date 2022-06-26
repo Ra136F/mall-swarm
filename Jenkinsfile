@@ -4,6 +4,9 @@ node {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '0fc6b6eb-d995-4644-890d-8513bfc3031b', url: 'git@github.com:Ra136F/mall-swarm.git']]])
     }
     stage('Build') {
+        sh "export M2_HOME=/home/feng/apache-maven-3.8.6"
+        sh "export PATH=$PATH:$M2_HOME/bin"
+        sh "mvn -v"
         sh "mvn clean install -pl mall-common,mall-mbg -am"
 
         for(int i=0;i<selectedProjects.size();i++){
