@@ -1,7 +1,7 @@
 node {
     def selectedProjects = "${project_name}".split(',')
     stage('Pull') { // for display purposes
-        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '0fc6b6eb-d995-4644-890d-8513bfc3031b', url: 'git@github.com:Ra136F/mall-swarm.git']]])
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '34253aae-332d-4bc7-bcba-6bb5b4d56c62', url: 'git@github.com:Ra136F/mall-swarm.git']]])
     }
     stage('Build') {
 
