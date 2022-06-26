@@ -12,6 +12,7 @@ docker run -p 9003:9003 --name ${app_name} \
 --link mongo:mongo \
 --link rabbitmq:rabbit \
 --link nacos-registry:nacos-registry \
+--network deploy_default \
 -e TZ="Asia/Shanghai" \
 -v /etc/localtime:/etc/localtime \
 -v /mydata/app/${app_name}/logs:/var/logs \
