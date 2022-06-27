@@ -8,7 +8,7 @@ node {
         sh "mvn clean install -pl mall-common,mall-mbg -am"
         for(int i=0;i<selectedProjects.size();i++){
             def currentProject = selectedProjects[i];
-            sh "mvn -f ${currentProject} clean package"
+            sh "mvn -f ${currentProject} clean package dockerfile:build"
         }
 //         sh "docker images"
         for(int i=0;i<selectedProjects.size();i++){
