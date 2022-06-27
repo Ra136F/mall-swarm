@@ -5,7 +5,7 @@ node {
     }
     stage('Build') {
         sh "docker images"
-        sh "mvn -v"
+//         sh "mvn -v"
         sh "mvn clean install -pl mall-common,mall-mbg -am"
         for(int i=0;i<selectedProjects.size();i++){
             def currentProject = selectedProjects[i];
