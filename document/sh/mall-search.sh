@@ -10,7 +10,7 @@ docker run -p 8084:8084 --name ${app_name} \
 --link mysql:db \
 --link elasticsearch:es \
 --link nacos-registry:nacos-registry \
---network feng_default \
+--network bridge \
 -e TZ="Asia/Shanghai" \
 -v /etc/localtime:/etc/localtime \
 -v /mydata/app/${app_name}/logs:/var/logs \
