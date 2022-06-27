@@ -1,5 +1,5 @@
 FROM java:8
 ARG JAR_FILE
-COPY ${JAR_FILE} app.jar
+COPY ${JAR_FILE} ${project.build.finalName}.jar
 EXPOSE 8101
-ENTRYPOINT ["java","-jar","-Dspring.profiles.active=prod","/app.jar"]
+ENTRYPOINT ["java","-jar","-Dspring.profiles.active=prod","/${project.build.finalName}.jar"]
