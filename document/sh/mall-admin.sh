@@ -6,7 +6,7 @@ docker rm ${app_name}
 echo '----rm container----'
 docker rmi `docker images | grep none | awk '{print $3}'`
 echo '----rm none images----'
-docker run -p 9001:9001 --name ${app_name} \
+docker run -p 8082:8082 --name ${app_name} \
 --link mysql:db \
 --link nacos-registry:nacos-registry \
 --network feng_default \
